@@ -1,0 +1,46 @@
+.recommended{
+    flex-basis: 24%;
+}
+
+.recommended .side-video-list{
+    width: 100%;
+    display: flex;
+    margin-bottom: 15px;
+    flex-direction: column;
+}
+.cinfo{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.cinfo img{
+ width: 30px;
+ height: 30px;
+ border-radius: 50%;
+}
+.recommended .side-video-list h4{
+    margin-left: 5px;
+}
+.recommended .side-video-list .thumb{
+    width: 100%;
+    border-radius: 10px;
+    margin-left: 0;
+    margin-top: 10px;
+}
+.vid-info{
+    display: flex;
+    margin-left: 5px;
+    margin-top: 5px;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.vid-info p{
+    color: #000000;
+}
+@media (max-width:900px) {
+    .recommended{
+        flex: 100%;
+    }
+}
