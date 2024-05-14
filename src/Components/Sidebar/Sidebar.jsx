@@ -14,92 +14,105 @@ import simon from '../../assets/simon.png';
 import tom from '../../assets/tom.png';
 import megan from '../../assets/megan.png';
 import cameron from '../../assets/cameron.png';
-const Sidebar = ({sidebar,category,setCategory}) => {
+const Sidebar = ({ sidebar, category, setCategory }) => {
+
+    const arr = [
+        {
+            "cateId": 0,
+            "catTitle": "Home",
+            "image": home
+        },
+        {
+            "cateId": 20,
+            "catTitle": "Gaming",
+            "image": game_icon
+        },
+        {
+            "cateId": 2,
+            "catTitle": "Automobiles",
+            "image": automobiles
+        },
+        {
+            "cateId": 17,
+            "catTitle": "Sports",
+            "image": sports
+        },
+        {
+            "cateId": 24,
+            "catTitle": "Entertainment",
+            "image": entertainment
+        },
+        {
+            "cateId": 28,
+            "catTitle": "Technology",
+            "image": tech
+        },
+        {
+            "cateId": 10,
+            "catTitle": "Music",
+            "image": music
+        },
+        {
+            "cateId": 22,
+            "catTitle": "Blogs",
+            "image": blogs
+        },
+        {
+            "cateId": 25,
+            "catTitle": "News",
+            "image": news
+        },
+
+
+    ]
+
+    // Fuction for sidebar Details
+    const sideBarDetails = (catagoryNo, catagoryTitle, image, index) => {
+        return (<div className={`side-link ${category === catagoryNo ? 'active' : ""}`} onClick={() => {
+            setCategory(catagoryNo)
+        }} key={index}>
+            <img src={image} alt="" />
+            {sidebar && <p>{catagoryTitle}</p>}
+        </div>
+        )
+    }
+
     return (
         <div className='sidebar'>
             <div className="sortcut-links">
-                <div className={`side-link ${category===0 ? 'active':""}`} onClick={()=>{
-                    setCategory(0)
-                }}>
-                    <img src={home} alt="" />
-                    {sidebar && <p>Home</p>}
-                </div>
-                <div className={`side-link ${category===20 ? 'active':""}`} onClick={()=>{
-                    setCategory(20)
-                }}>
-                    <img src={game_icon} alt="" />
-                    {sidebar && <p>Gaming</p>}
-                </div>
-                <div className={`side-link ${category===2 ? 'active':""}`} onClick={()=>{
-                    setCategory(2)
-                }}>
-                    <img src={automobiles} alt="" />
-                    {sidebar &&<p>Automobiles</p>}
-                </div>
-                <div className={`side-link ${category===17 ? 'active':""}`} onClick={()=>{
-                    setCategory(17)
-                }}>
-                    <img src={sports} alt="" />
-                    {sidebar &&<p>Sports</p>}
-                </div>
-                <div className={`side-link ${category===24 ? 'active':""}`} onClick={()=>{
-                    setCategory(24)
-                }}>
-                    <img src={entertainment} alt="" />
-                    {sidebar &&<p>Entertainment</p>}
-                </div>
-                <div className={`side-link ${category===28 ? 'active':""}`} onClick={()=>{
-                    setCategory(28)
-                }}>
-                    <img src={tech} alt="" />
-                    {sidebar &&<p>Technology</p>}
-                </div>
-                <div className={`side-link ${category===10 ? 'active':""}`} onClick={()=>{
-                    setCategory(10)
-                }}>
-                    <img src={music} alt="" />
-                    {sidebar &&<p>Music</p>}
-                </div>
-                <div className={`side-link ${category===22 ? 'active':""}`} onClick={()=>{
-                    setCategory(22)
-                }}>
-                    <img src={blogs} alt="" />
-                    {sidebar &&<p>Blogs</p>}
-                </div>
-                <div className={`side-link ${category===25 ? 'active':""}`} onClick={()=>{
-                    setCategory(25)
-                }}>
-                    <img src={news} alt="" />
-                    {sidebar &&<p>News</p>}
-                </div>
-                <br />
-                {sidebar &&<hr />}
-            </div>
-         <div className="subscribed-list">
-               {sidebar && <h3>Subscribed</h3>}
-                <div className="side-link">
-                    <img src={jack} alt="" />
-                   {sidebar && <p>Jack Chennal</p>}
-                </div>
-                <div className="side-link">
-                    <img src={simon} alt="" />
-                    {sidebar &&<p>Jack Chennal</p>}
-                </div>
-                <div className="side-link">
-                    <img src={tom} alt="" />
-                    {sidebar &&<p>Jack Chennal</p>}
-                </div>
-                <div className="side-link">
-                    <img src={megan} alt="" />
-                    {sidebar &&<p>Jack Chennal</p>}
-                </div>
-                <div className="side-link">
-                    <img src={cameron} alt="" />
-                    {sidebar &&<p>Jack Chennal</p>}
+
+                {
+                    arr.map((value, index) => {
+                        return sideBarDetails(value.cateId, value.catTitle, value.image, index);
+                    })
+
+                }
+                <div className="subscribed-list">
+                    {sidebar && <h3>Subscribed</h3>}
+                    <div className="side-link">
+                        <img src={jack} alt="" />
+                        {sidebar && <p>Jack Chennal</p>}
+                    </div>
+                    <div className="side-link">
+                        <img src={simon} alt="" />
+                        {sidebar && <p>Jack Chennal</p>}
+                    </div>
+                    <div className="side-link">
+                        <img src={tom} alt="" />
+                        {sidebar && <p>Jack Chennal</p>}
+                    </div>
+                    <div className="side-link">
+                        <img src={megan} alt="" />
+                        {sidebar && <p>Jack Chennal</p>}
+                    </div>
+                    <div className="side-link">
+                        <img src={cameron} alt="" />
+                        {sidebar && <p>Jack Chennal</p>}
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Sidebar
+export default Sidebar;
